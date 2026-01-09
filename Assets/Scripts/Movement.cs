@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
     public float controlInputX;
     public float controlInputZ;
     public Vector3 mousePos;
+    public Vector2 pastMousePos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,10 +17,14 @@ public class Movement : MonoBehaviour
     void Update()
     {
        Vector3 position = transform.position;
+       Quaternion rotation = transform.rotation;
        controlInputX = Input.GetAxis("Horizontal");
        controlInputZ = Input.GetAxis("Vertical");
+        mousePos = Input.mousePosition;
+        float testX = mousePos.x - pastMousePos.x;
+        
 
-        mousePos = Camera.main.WorldToScreenPoint(position);
+        //rotation.x += testX * Time.deltaTime;
 
         position.x += speed * controlInputX * Time.deltaTime;
         position.z += speed * controlInputZ * Time.deltaTime;
@@ -30,5 +35,8 @@ public class Movement : MonoBehaviour
 
 
         transform.position = position;
+        transform.rotation = rotation;
+        pastMousePos = mousePos;
+
     }
 }
