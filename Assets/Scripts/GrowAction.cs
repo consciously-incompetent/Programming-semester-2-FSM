@@ -12,7 +12,7 @@ namespace NodeCanvas.Tasks.Actions {
 		int GrowthShrink = 1;
 		public float MaxSize;
 		public float MinSize;
-		
+        public GameObject player;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -27,7 +27,10 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+			Movement PlayerScript = player.GetComponent<Movement>();
 			agent.transform.localScale = Vector3.one * MinSize;
+			PlayerScript.clicked = false;
+
             //EndAction(true);
 		}
 
