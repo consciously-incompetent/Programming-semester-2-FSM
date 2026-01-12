@@ -253,7 +253,7 @@ MonoBehaviour:
   _serializedBlackboard: '{"_variables":{"speed":{"_value":5.0,"_name":"speed","_id":"b1289e18-cb78-4114-b0ef-67f9f0175bc3","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"rotateSpeed":{"_value":90.0,"_name":"rotateSpeed","_id":"165afeff-aa7d-48cc-b6b9-0e88d784ded3","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"currentCharge":{"_value":100.0,"_name":"currentCharge","_id":"81804ccd-542f-404a-9c50-7d7c46514e44","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"myBoolean":{"_name":"myBoolean","_id":"b05066d0-9952-4d77-a471-a3985cf2c00a","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ReachTarget":{"_name":"ReachTarget","_id":"b05066d0-9952-4d77-a471-a3985cf2c00a","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -266,7 +266,7 @@ MonoBehaviour:
   - _json: '{"_value":100.0,"_name":"currentCharge","_id":"81804ccd-542f-404a-9c50-7d7c46514e44","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_name":"myBoolean","_id":"b05066d0-9952-4d77-a471-a3985cf2c00a","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+  - _json: '{"_name":"ReachTarget","_id":"b05066d0-9952-4d77-a471-a3985cf2c00a","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &341929445
