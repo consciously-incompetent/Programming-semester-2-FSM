@@ -5,24 +5,60 @@ using UnityEngine;
 namespace NodeCanvas.Tasks.Actions {
 
 	public class ScanAT : ActionTask {
+
+		public BBParameter<Transform> targetBB;
+		public BBParameter<float> initScanRadiusBB;
+		public BBParameter<float> ScanRadiusBB;
+		public BBParameter<bool> TowerFoundBB;
+
+		public LayerMask targetLayerMask;
+		public float scanDuration;
 		public Color scanColour;
 		public int numberOfScanCirclePoints;
+
+		float currentDuration = 0f;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
 		protected override string OnInit() {
-			return null;
+            ScanRadiusBB.value = initScanRadiusBB.value;
+            return null;
 		}
 
 		//This is called once each time the task is enabled.
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+
+			currentDuration = 0f;
+			//
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			
+			DrawCircle(agent.transform.position, ScanRadiusBB.value, scanColour, numberOfScanCirclePoints);
+
+
+			currentDuration += Time.deltaTime;
+
+			if(currentDuration > scanDuration)
+			{
+				Collider[] colliders = Physics.OverlapSphere(agent.transform.position, ScanRadiusBB.value, targetLayerMask);
+				foreach(Collider collider in colliders)
+				{
+					Blackboard bb = collider.GetComponentInParent<Blackboard>();
+					float repairValue = bb.GetVariableValue<float>("repairValue");
+
+					if(repairValue == 0)
+					{
+						targetBB.value = bb.GetVariableValue<Transform>("workpad");
+						TowerFoundBB.value = true;
+						
+						
+					}
+				}
+                EndAction(true);
+            }
 		}
 
 		private void DrawCircle(Vector3 center, float radius, Color colour, int numberOfPoints)

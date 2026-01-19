@@ -2,14 +2,20 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
 
+
 namespace NodeCanvas.Tasks.Actions {
-	
+
+	public class RepairAT : ActionTask {
 
 
-	public class BoostAT : ActionTask {
+		public BBParameter<float> initScanRadiusBB;
+		public BBParameter<float> ScanRadiusBB;
+		public BBParameter<Transform> targetBB;
+		public BBParameter<bool> HasTargetBB;
 
-		public BBParameter<float> scanRadiusBB;
-		public float boostValue;
+		public float repairRate = 25f;
+		Blackboard lightTowerBlackBoard;
+		
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
@@ -21,14 +27,21 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-
-			scanRadiusBB.value += boostValue;
-			EndAction(true);
+			lightTowerBlackBoard = targetBB.value.GetComponentInParent<Blackboard>();
+			//EndAction(true);
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			
+			float RepairValue = lightTowerBlackBoard.GetVariableValue<float>("repairValue");
+			RepairValue += repairRate * Time.deltaTime;
+			lightTowerBlackBoard.SetVariableValue("repairValue", RepairValue);
+			if(RepairValue >= 100)
+			{
+				HasTargetBB.value = false;
+				ScanRadiusBB.value = initScanRadiusBB.value;
+				EndAction(true);
+			}
 		}
 
 		//Called when the task is disabled.
