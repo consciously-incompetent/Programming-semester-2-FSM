@@ -8,10 +8,12 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class prioritizeFood : ActionTask {
 		public List<GameObject> bushes;
+		List<GameObject> bushesWithBerry;
 		public BBParameter<GameObject> Berry;
+
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
-		protected override string OnInit() {
+		protected override string OnInit() {  
 			return null;
 		}
 
@@ -19,26 +21,25 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+            bushesWithBerry = new List<GameObject>();
 
-
-
-			foreach (var bush in bushes)
-			{
-				if(bush.GetComponent<Berries>().HasBerries == true)
-				{
-					Berry.value = bush;
-					bush.GetComponent<Berries>().HasBerries = false;
-                    EndAction(true);
+            foreach (var bush in bushes)
+            {
+                if (bush.GetComponent<Berries>().HasBerries == true)
+                {
+                    bushesWithBerry.Add(bush);
+                    bush.GetComponent<Berries>().HasBerries = false;
+                    
                 }
+            }
+            Berry.value = bushesWithBerry[Random.Range(0,bushesWithBerry.Count-1)];
+            EndAction(true);
 
 
-			}
-			
-			EndAction(true);
-		}
+        }
 
-		//Called once per frame while the action is active.
-		protected override void OnUpdate() {
+        //Called once per frame while the action is active.
+        protected override void OnUpdate() {
 			
 		}
 
