@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class Berries : MonoBehaviour
 {
+    //setting up variables 
+
+    //bool for if the bush has berries 
     public bool HasBerries = false;
+    //time variable to resetinng the berry 
     float t;
+    //the time the berry resets 
     public float regrowthTime;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
