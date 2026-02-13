@@ -1,6 +1,7 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -21,6 +22,9 @@ namespace NodeCanvas.Tasks.Actions {
 		//used for deciding which bush to go to 
 		int Choice;
 
+		public BBParameter<GameObject> Home;
+
+
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
 		protected override string OnInit() {  
@@ -33,6 +37,7 @@ namespace NodeCanvas.Tasks.Actions {
 		protected override void OnExecute() {
 			//empty the previous busheswithberry list 
             bushesWithBerry = new List<GameObject>();
+			//Debug.Log(bushesWithBerry.Count);
 
 			//for each bush in the bushes list I check if that bush has berris and if it does I add it to the second list 
             foreach (var bush in bushes)
@@ -44,15 +49,20 @@ namespace NodeCanvas.Tasks.Actions {
                     
                 }
             }
-			//as long as that list isn't empty i genereate a random number that corresponds with 1 of bushes with berries, then remove its berries and set it as the destination for the dee
-			if (bushesWithBerry != null)
+            //as long as that list isn't empty i genereate a random number that corresponds with 1 of bushes with berries, then remove its berries and set it as the destination for the dee
+           //Debug.Log(bushesWithBerry.Count);
+            if (bushesWithBerry.Count != 0)
 			{
 				Choice = Random.Range(0, bushesWithBerry.Count - 1);
 				bushesWithBerry[Choice].GetComponent<Berries>().HasBerries = false;
 				Berry.value = bushesWithBerry[Choice];
 			}
+			else
+			{
+				Berry.value = Home.value;
+			}
 
-            EndAction(true);
+				EndAction(true);
 
 
         }
