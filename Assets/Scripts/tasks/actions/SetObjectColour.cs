@@ -6,7 +6,8 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class SetObjectColour : ActionTask {
 
-		public GameObject Target;
+		public BBParameter<GameObject> Target;
+		public BBParameter<float> Divisor = 1;
 		public Color col;
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
@@ -19,8 +20,9 @@ namespace NodeCanvas.Tasks.Actions {
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
 
-			MeshRenderer targetMesh = Target.GetComponent<MeshRenderer>();
-			targetMesh.material.color = col;
+			MeshRenderer targetMesh = Target.value.GetComponent<MeshRenderer>();
+			
+			targetMesh.material.color = col / Divisor.value;
 			EndAction(true);
 		}
 
