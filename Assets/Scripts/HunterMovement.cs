@@ -45,13 +45,13 @@ public class HunterMovement : MonoBehaviour
         {
             pos += Vector3.left * Time.deltaTime * speed;
         }
-        if (Input.GetKey(KeyCode.S) && pos.z < length)
-        {
-            pos += Vector3.forward * Time.deltaTime * speed;
-        }
-        if (Input.GetKey(KeyCode.W) && pos.z > -length)
+        if (Input.GetKey(KeyCode.S) && pos.z > -length)
         {
             pos += Vector3.back * Time.deltaTime * speed;
+        }
+        if (Input.GetKey(KeyCode.W) && pos.z < length)
+        {
+            pos += Vector3.forward * Time.deltaTime * speed;
         }
 
 
