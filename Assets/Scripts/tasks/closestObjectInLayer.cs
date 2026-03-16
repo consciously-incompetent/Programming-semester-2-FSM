@@ -23,7 +23,7 @@ namespace NodeCanvas.Tasks.Actions {
 		protected override void OnExecute() {
 			Collider[] Colliders = Physics.OverlapSphere(agent.transform.position, Radius.value, TargetLayerMask.value);
 
-			if(Colliders != null) 
+			if(Colliders.Length > 0) 
 			{
 				closestObject.value = Colliders[0].gameObject;
 			foreach (Collider NearbyCollider in Colliders)
