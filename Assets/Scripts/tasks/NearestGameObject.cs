@@ -49,6 +49,8 @@ namespace NodeCanvas.Tasks.Conditions {
                 return false;
             }
 
+           
+
             return true;
 		}
 	}
