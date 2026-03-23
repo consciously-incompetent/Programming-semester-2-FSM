@@ -1,43 +1,27 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using static UnityEngine.Rendering.DebugUI;
-
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class ChangeLayer : ActionTask {
-		public BBParameter<int> changeToLayer;
-		public bool useSelf;
-		[Description("don't fill out if useSelf is ticked")]
-		public BBParameter<GameObject> TargetGameobject;
+	public class DeleteTargetAndNavMesh : ActionTask {
+
+		public BBParameter<GameObject> Target;
+		
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
 		protected override string OnInit() {
-            return null;
+			return null;
 		}
 
 		//This is called once each time the task is enabled.
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-             
-            if (useSelf)
-			{
+			
 
-				//Debug.Log(agent.gameObject.layer);
-				
-                agent.gameObject.layer = changeToLayer.value;
-                //Debug.Log(agent.gameObject.layer);
-            }
-			else
-			{
-				TargetGameobject.value.layer = changeToLayer.value;
-			}
 
-				EndAction(true);
+			EndAction(true);
 		}
 
 		//Called once per frame while the action is active.
