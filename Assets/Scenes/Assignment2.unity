@@ -251,7 +251,7 @@ MonoBehaviour:
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"radious":{"_value":5.0,"_name":"radious","_id":"056be744-e99b-4a8c-9094-5133b52ba6fa","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"rotate
-    speed":{"_value":100.0,"_name":"rotate speed","_id":"9d60e5e0-1d5a-4540-9b3f-fc3c35188bef","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    speed":{"_value":500.0,"_name":"rotate speed","_id":"9d60e5e0-1d5a-4540-9b3f-fc3c35188bef","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"currentIndex":{"_name":"currentIndex","_id":"33ee1c0c-d05f-469a-aa7b-62b815642597","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Self":{"_value":2,"_name":"Self","_id":"7f07cbdc-9ecc-4a01-a82f-4c171e899335","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
@@ -272,7 +272,7 @@ MonoBehaviour:
   - _json: '{"_value":5.0,"_name":"radious","_id":"056be744-e99b-4a8c-9094-5133b52ba6fa","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":100.0,"_name":"rotate speed","_id":"9d60e5e0-1d5a-4540-9b3f-fc3c35188bef","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":500.0,"_name":"rotate speed","_id":"9d60e5e0-1d5a-4540-9b3f-fc3c35188bef","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_name":"currentIndex","_id":"33ee1c0c-d05f-469a-aa7b-62b815642597","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
