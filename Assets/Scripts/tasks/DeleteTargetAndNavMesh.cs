@@ -20,9 +20,14 @@ namespace NodeCanvas.Tasks.Actions {
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
 
-			Target.value.GetComponent<NavMeshAgent>();
-
-			EndAction(true);
+			NavMeshAgent sheepAgent =  Target.value.GetComponent<NavMeshAgent>();
+            //= true;
+            sheepAgent.ResetPath();
+			sheepAgent.isStopped = true;
+			
+            Object.Destroy(Target.value);
+            
+            EndAction(true);
 		}
 
 		//Called once per frame while the action is active.
