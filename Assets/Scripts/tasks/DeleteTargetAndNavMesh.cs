@@ -24,7 +24,8 @@ namespace NodeCanvas.Tasks.Actions {
             //= true;
             sheepAgent.ResetPath();
 			sheepAgent.isStopped = true;
-			
+
+			Target.value.SetActive(false);
             Object.Destroy(Target.value);
             
             EndAction(true);
