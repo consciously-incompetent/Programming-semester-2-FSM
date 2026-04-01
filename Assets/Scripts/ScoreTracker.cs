@@ -1,15 +1,19 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreTracker : MonoBehaviour
 {
     public int score;
     public int sheepCount;
     public GameObject sheep;
+    public GameObject scoreText;
+    //TextMeshPro sText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //sText  = scoreText.GetComponent<TextMeshPro>();
         summonSheep(5);
     }
 
@@ -20,14 +24,12 @@ public class ScoreTracker : MonoBehaviour
         {
             summonSheep(5);
         }
-
-
-
     }
 
     public void ScoreChange(int amount)
     {
         score += amount;
+        scoreText.GetComponent<TextMeshProUGUI>().text = score.ToString();
     }
 
     public void SheepDecrease(int amount)
